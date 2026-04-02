@@ -1,30 +1,16 @@
-let n = 2;
-let m = 5;
-let med = Math.ceil(m / 2);
-let matrix = [
-    [2, 3, 4, 5, 6],
-    [7, 8, 9, 10, 11]
-];
+function bubble(arr){
+    let n = arr.length;
 
-for (let i = 0; i < n; i++) {
-    console.log(matrix[i].join(" "));
-}
-for (let i = 0; i < n; i++) {
-    let k = 0;
-    for (let j = 0; j < med; j++) {
-        let result = matrix[i][j];
-        matrix[i][j] = matrix[i][m - 1 - j];
-        matrix[i][m - 1 - j] = result;
-        k++;
+    for(let i = 0; i < n - 1; i++){
+        for(let j = 0; j < n - 1 - i; j++){
+            if(arr[j] > arr[j + 1]){
+                let result = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = result
+            }
+        }
     }
-
-    let str = "";
-
-    for (let j = 0; j < m; j++) {
-        str += matrix[i][j] + " "
-
-    }
-
-    console.log(str);
-    console.log();
+    return arr;
 }
+let m = [1, 6, 4, 3, 5, 2, 7, 9, 8];
+console.log(bubble(m));     
